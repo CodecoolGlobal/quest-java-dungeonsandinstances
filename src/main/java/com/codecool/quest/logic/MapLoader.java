@@ -42,6 +42,9 @@ public class MapLoader {
                         case 'p':
                             cell.setType(CellType.PINE);
                             break;
+                        case 'c':
+                            cell.setType(CellType.CLOSED_DOOR);
+                            break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
                     }

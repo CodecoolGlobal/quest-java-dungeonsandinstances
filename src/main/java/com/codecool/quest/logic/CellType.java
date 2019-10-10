@@ -4,7 +4,8 @@ public enum CellType {
     EMPTY("empty"),
     FLOOR("floor"),
     WALL("wall"),
-    PINE("pine");
+    PINE("pine"),
+    CLOSED_DOOR("closed-door");
 
     private final String tileName;
 
@@ -14,15 +15,5 @@ public enum CellType {
 
     public String getTileName() {
         return tileName;
-    }
-
-
-    public boolean canMoveToNExtCell() {
-
-        for (CellType tile : CellType.values()) {
-            //System.out.println(tile);
-            if (tile.equals(FLOOR)) return true;
-            else {return false;}
-        }
     }
 }

@@ -30,6 +30,7 @@ public class Tiles {
         tileMap.put("player", new Tile(27, 0));
         tileMap.put("skeleton", new Tile(29, 6));
         tileMap.put("pine", new Tile(1, 1));
+        tileMap.put("closed-door", new Tile(8, 11));
 
     }
 
