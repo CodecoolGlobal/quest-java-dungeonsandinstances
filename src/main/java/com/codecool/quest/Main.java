@@ -81,19 +81,19 @@ public class Main extends Application {
 
     private void onKeyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
-            case UP:
+            case W:
                 map.getPlayer().move(0, -1);
                 refresh();
                 break;
-            case DOWN:
+            case S:
                 map.getPlayer().move(0, 1);
                 refresh();
                 break;
-            case LEFT:
+            case A:
                 map.getPlayer().move(-1, 0);
                 refresh();
                 break;
-            case RIGHT:
+            case D:
                 map.getPlayer().move(1,0);
                 refresh();
                 break;
@@ -108,7 +108,9 @@ public class Main extends Application {
                 Cell cell = map.getCell(x, y);
                 if (cell.getActor() != null) {
                     Tiles.drawTile(context, cell.getActor(), x, y);
-                } else {
+                } else if(cell.getItem() != null){
+                    Tiles.drawTile(context, cell.getItem(), x, y);
+                } else{
                     Tiles.drawTile(context, cell, x, y);
                 }
             }
