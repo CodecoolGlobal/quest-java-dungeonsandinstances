@@ -15,7 +15,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-
+import javafx.scene.control.ListView;
+import javafx.scene.layout.VBox;
+import javafx.event.*;
 
 public class Main extends Application {
     GameMap map = MapLoader.loadMap();
@@ -24,6 +26,7 @@ public class Main extends Application {
             map.getHeight() * Tiles.TILE_WIDTH);
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
+    Label buttonLabel = new Label();
 
     public static void main(String[] args) {
         launch(args);
@@ -35,10 +38,32 @@ public class Main extends Application {
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
 
-        ui.add(new Label("Health: "), 0, 0);
+        ui.add(new Label("Health: "), 0, 0, 1, 1);
         ui.add(healthLabel, 1, 0);
 
-        ui.add(new Button("Pick up item"), 0, 15);
+        Button button = new Button("Pick up item");
+        ui.add(button, 0, 1, 1, 1);
+        button.setPrefSize(100, 50);
+
+        button.setOnAction(new EventHandler<>() {
+            @Override
+            public void handle(ActionEvent e) {
+                button.setText("Item picked");
+            }
+        });
+
+
+        ListView listView = new ListView();
+        listView.getItems().add("Pine");
+        listView.getItems().add("Key");
+        listView.getItems().add("Bomb");
+
+        VBox vbox = new VBox(listView);
+        vbox.setPrefSize(100,150);
+        ui.add(vbox, 0, 2, 1, 1);
+
+        ui.setHgap(10);
+        ui.setVgap(10);
 
         BorderPane borderPane = new BorderPane();
 
