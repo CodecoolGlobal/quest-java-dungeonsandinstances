@@ -6,11 +6,11 @@ import com.codecool.quest.logic.Cell;
 
 public abstract class Item implements Drawable {
     private Cell cell;
-    private CellType type;
+
 
     public Item (Cell cell){
         this.cell = cell;
-
+        this.cell.setItem(this);
     }
 
     public Cell getCell() {
