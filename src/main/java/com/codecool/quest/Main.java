@@ -14,6 +14,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+
 
 public class Main extends Application {
     GameMap map = MapLoader.loadMap();
@@ -35,6 +37,8 @@ public class Main extends Application {
 
         ui.add(new Label("Health: "), 0, 0);
         ui.add(healthLabel, 1, 0);
+
+        ui.add(new Button("Pick up item"), 0, 15);
 
         BorderPane borderPane = new BorderPane();
 
