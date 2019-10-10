@@ -14,5 +14,14 @@ public enum CellType {
     public String getTileName() {
         return tileName;
     }
-    
+
+
+    public boolean canMoveToNExtCell() {
+
+        for (CellType tile : CellType.values()) {
+            //System.out.println(tile);
+            if (tile.equals(FLOOR)) return true;
+            else {return false;}
+        }
+    }
 }
