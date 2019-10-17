@@ -16,18 +16,17 @@ public class Player extends Actor {
     @Override
     public void move() {
         if (this.newDY == 0 && this.newDX == 0) {
-
             return;
         }
+
         Cell nextCell = cell.getNeighbor(this.newDX, this.newDY);
         this.newDX = 0;
         this.newDY = 0;
-        if (nextCell.getType().equals(CellType.FLOOR) && nextCell.getActor() == null) {
+        if (nextCell.freeForMovement()) {
             cell.setActor(null);
             nextCell.setActor(this);
             cell = nextCell;
         }
-
     }
 
     public String getTileName() {

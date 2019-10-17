@@ -6,7 +6,7 @@ import javafx.util.Duration;
 
 public class GameTimer {
 
-    private static final double DEFAULT_60_FPS = 0.1;
+    private static final double DEFAULT_60_FPS = 0.5;
     private double frameTime;
     private Timeline timer = new Timeline();
 
