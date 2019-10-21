@@ -26,4 +26,4 @@ public enum CellType {
         }
         return true;
     }
-}quest-java-dungeonsandinstances
+}
