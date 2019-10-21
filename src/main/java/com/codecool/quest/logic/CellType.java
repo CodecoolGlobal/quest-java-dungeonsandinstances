@@ -24,5 +24,6 @@ public enum CellType {
             if (tile.equals(FLOOR)) return true;
             else {return false;}
         }
+        return true;
     }
 }
