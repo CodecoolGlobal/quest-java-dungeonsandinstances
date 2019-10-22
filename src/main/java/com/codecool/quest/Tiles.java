@@ -22,7 +22,7 @@ public class Tiles {
             h = TILE_WIDTH;
         }
     }
-
+/*wall:10.17*/
     static {
         tileMap.put("empty", new Tile(0, 0));
         tileMap.put("wall", new Tile(10, 17));
@@ -30,6 +30,12 @@ public class Tiles {
         tileMap.put("player", new Tile(25, 0));
         tileMap.put("skeleton", new Tile(29, 6));
         tileMap.put("pine", new Tile(1, 1));
+        tileMap.put("bridge", new Tile(5, 7));
+        tileMap.put("river", new Tile(8, 5));
+        tileMap.put("tarlos", new Tile(11, 24));
+        tileMap.put("parliament", new Tile(5, 19));
+        tileMap.put("politician1", new Tile(21, 8));
+        tileMap.put("politician2", new Tile(21, 9));
 
         tileMap.put("sword", new Tile(2, 29));
         tileMap.put("key", new Tile(16, 23));
