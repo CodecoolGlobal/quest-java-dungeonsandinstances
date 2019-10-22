@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class MapLoader {
     public static GameMap loadMap() {
-        InputStream is = MapLoader.class.getResourceAsStream("/map.txt");
+        InputStream is = MapLoader.class.getResourceAsStream("/map2.txt");
         Scanner scanner = new Scanner(is);
         int width = scanner.nextInt();
         int height = scanner.nextInt();
@@ -29,6 +29,24 @@ public class MapLoader {
                             break;
                         case '#':
                             cell.setType(CellType.WALL);
+                            break;
+                        case 'b':
+                            cell.setType(CellType.BRIDGE);
+                            break;
+                        case 't':
+                            cell.setType(CellType.TARLOS);
+                            break;
+                        case 'o':
+                            cell.setType(CellType.PARLIAMENT);
+                            break;
+                        case '1':
+                            cell.setType(CellType.POLITICIAN1);
+                            break;
+                        case '2':
+                            cell.setType(CellType.POLITICIAN2);
+                            break;
+                        case '=':
+                            cell.setType(CellType.RIVER);
                             break;
                         case '.':
                             cell.setType(CellType.FLOOR);
