@@ -9,8 +9,25 @@ public class Player extends Actor {
     private int newDX;
     private int newDY;
 
+    private int wealth = 0;
+    public int getWealth() {
+        return wealth;
+    }
+
+    public void setWealth(int wealth) {
+        this.wealth = wealth;
+    }
+
+    private final int strength = 7;
+
+    private final int protection = 15;
+
+
+
     public Player(Cell cell) {
         super(cell);
+        this.health = 10;
+
     }
 
     @Override
@@ -39,5 +56,8 @@ public class Player extends Actor {
 
     public void setNewDY(int newDY) {
         this.newDY = newDY;
+    }
+
+    public void payOrFight() {
     }
 }
