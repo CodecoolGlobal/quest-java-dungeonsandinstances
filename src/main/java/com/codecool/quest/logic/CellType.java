@@ -4,7 +4,13 @@ public enum CellType {
     EMPTY("empty"),
     FLOOR("floor"),
     WALL("wall"),
-    PINE("pine");
+    PINE("pine"),
+    BRIDGE("bridge"),
+    TARLOS("tarlos"),
+    POLITICIAN1("politician1"),
+    POLITICIAN2("politician2"),
+    PARLIAMENT("parliament"),
+    RIVER("river");
 
     private final String tileName;
 
@@ -29,3 +35,4 @@ public enum CellType {
         return true;
     }
 }
+
