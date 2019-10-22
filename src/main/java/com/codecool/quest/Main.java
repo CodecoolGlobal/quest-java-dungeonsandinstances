@@ -3,6 +3,7 @@ package com.codecool.quest;
 import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.MapLoader;
+import com.codecool.quest.logic.actors.Actor;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -77,25 +78,31 @@ public class Main extends Application {
 
         primaryStage.setTitle("Codecool Quest");
         primaryStage.show();
+
+        GameTimer gameTimer = new GameTimer();
+        gameTimer.setup(this::step);
+        gameTimer.play();
+    }
+
+
+    private void step() {
+        map.getActors().forEach(Actor::move);
+        refresh();
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getCode()) {
             case W:
-                map.getPlayer().move(0, -1);
-                refresh();
+                map.getPlayer().setNewDY(-1);
                 break;
             case S:
-                map.getPlayer().move(0, 1);
-                refresh();
+                map.getPlayer().setNewDY(1);
                 break;
             case A:
-                map.getPlayer().move(-1, 0);
-                refresh();
+                map.getPlayer().setNewDX(-1);
                 break;
             case D:
-                map.getPlayer().move(1,0);
-                refresh();
+                map.getPlayer().setNewDX(1);
                 break;
         }
     }

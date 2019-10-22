@@ -5,7 +5,7 @@ import com.codecool.quest.logic.CellType;
 import com.codecool.quest.logic.Drawable;
 
 public abstract class Actor implements Drawable {
-    private Cell cell;
+    protected Cell cell;
     private int health = 10;
 
     public Actor(Cell cell) {
@@ -13,18 +13,7 @@ public abstract class Actor implements Drawable {
         this.cell.setActor(this);
     }
 
-    public void move(int dx, int dy) {
-        Cell nextCell = cell.getNeighbor(dx, dy);
-        if (!nextCell.getType().equals(CellType.FLOOR) || nextCell.getActor() != null) {
-
-        }
-
-        else {
-            cell.setActor(null);
-            nextCell.setActor(this);
-            cell = nextCell;
-        }
-    }
+    public abstract void move();
 
     public int getHealth() {
         return health;

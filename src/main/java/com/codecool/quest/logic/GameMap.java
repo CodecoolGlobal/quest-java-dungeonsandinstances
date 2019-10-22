@@ -1,6 +1,10 @@
 package com.codecool.quest.logic;
 
+import com.codecool.quest.logic.actors.Actor;
 import com.codecool.quest.logic.actors.Player;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class GameMap {
@@ -9,6 +13,8 @@ public class GameMap {
     private Cell[][] cells;
 
     private Player player;
+
+    private List<Actor> actors = new ArrayList<>();
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
@@ -39,5 +45,14 @@ public class GameMap {
 
     public int getHeight() {
         return height;
+    }
+
+    public void addActor(Actor actor) {
+
+        this.actors.add(actor);
+    }
+
+    public List<Actor> getActors() {
+        return actors;
     }
 }

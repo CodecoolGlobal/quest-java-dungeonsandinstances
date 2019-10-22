@@ -22,7 +22,9 @@ public enum CellType {
         for (CellType tile : CellType.values()) {
             //System.out.println(tile);
             if (tile.equals(FLOOR)) return true;
-            else {return false;}
+            else {
+                return false;
+            }
         }
         return false;
     }
