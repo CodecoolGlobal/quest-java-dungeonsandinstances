@@ -4,6 +4,7 @@ import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.MapLoader;
 import com.codecool.quest.logic.actors.Actor;
+import com.codecool.quest.logic.actors.Politician1;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -73,8 +74,10 @@ public class Main extends Application {
 
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
+
         refresh();
         scene.setOnKeyPressed(this::onKeyPressed);
+
 
         primaryStage.setTitle("Codecool Quest");
         primaryStage.show();
@@ -82,6 +85,7 @@ public class Main extends Application {
         GameTimer gameTimer = new GameTimer();
         gameTimer.setup(this::step);
         gameTimer.play();
+
     }
 
 
@@ -122,6 +126,7 @@ public class Main extends Application {
                 }
             }
         }
+
         healthLabel.setText("" + map.getPlayer().getHealth());
     }
 }

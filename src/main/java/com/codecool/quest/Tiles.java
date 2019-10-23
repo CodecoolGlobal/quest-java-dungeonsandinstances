@@ -22,7 +22,7 @@ public class Tiles {
             h = TILE_WIDTH;
         }
     }
-/*wall:10.17*/
+
     static {
         tileMap.put("empty", new Tile(0, 0));
         tileMap.put("wall", new Tile(23, 26));

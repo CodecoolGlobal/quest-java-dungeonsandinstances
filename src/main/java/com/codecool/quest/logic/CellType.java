@@ -23,14 +23,14 @@ public enum CellType {
     }
 
 
-    public boolean canMoveToNExtCell() {
-
-        for (CellType tile : CellType.values()) {
-            //System.out.println(tile);
-            return tile.equals(FLOOR);
-        }
-        return true;
-    }
+//    public boolean canMoveToNExtCell() {
+//
+//        for (CellType tile : CellType.values()) {
+//            //System.out.println(tile);
+//            return tile.equals(FLOOR);
+//        }
+//        return true;
+//    }
 
 }
 

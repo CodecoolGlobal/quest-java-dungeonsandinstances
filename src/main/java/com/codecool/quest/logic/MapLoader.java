@@ -1,6 +1,8 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Player;
+import com.codecool.quest.logic.actors.Politician1;
+import com.codecool.quest.logic.actors.Politician2;
 import com.codecool.quest.logic.actors.Skeleton;
 import com.codecool.quest.logic.items.Key;
 import com.codecool.quest.logic.items.Sword;
@@ -40,10 +42,14 @@ public class MapLoader {
                             cell.setType(CellType.PARLIAMENT);
                             break;
                         case '1':
-                            cell.setType(CellType.POLITICIAN1);
+                            cell.setType(CellType.FLOOR);
+                            Politician1 politician1 = new Politician1(cell);
+                            map.addActor(politician1);
                             break;
                         case '2':
-                            cell.setType(CellType.POLITICIAN2);
+                            cell.setType(CellType.FLOOR);
+                            Politician2 politician2 = new Politician2(cell);
+                            map.addActor(politician2);
                             break;
                         case '=':
                             cell.setType(CellType.RIVER);
