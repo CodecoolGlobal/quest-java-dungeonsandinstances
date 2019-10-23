@@ -57,6 +57,6 @@ public class Cell implements Drawable {
     }
 
     public boolean freeForMovement() {
-        return this.getType().equals(CellType.FLOOR) && this.getActor() == null;
+        return (this.getType().equals(CellType.FLOOR) || this.getType().equals(CellType.BRIDGE) || this.getType().equals(CellType.PARLIAMENT)) && this.getActor() == null;
     }
 }
