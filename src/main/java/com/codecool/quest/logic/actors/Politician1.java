@@ -2,11 +2,7 @@ package com.codecool.quest.logic.actors;
 
 import com.codecool.quest.logic.Cell;
 
-public class Politician1 extends Actor {
-    private int newDX;
-    private int newDY;
-    private int positionBeforeMove = 1;
-
+public class Politician1 extends Politician {
     public Politician1(Cell cell) {
         super(cell);
     }
@@ -35,18 +31,7 @@ public class Politician1 extends Actor {
                 this.newDY = -1;
                 break;
         }
-        Cell nextCell = cell.getNeighbor(this.newDX, this.newDY);
-        if (nextCell.freeForMovement()) {
-            cell.setActor(null);
-            nextCell.setActor(this);
-            cell = nextCell;
-
-            if (this.positionBeforeMove == 8) {
-                this.positionBeforeMove = 1;
-            } else {
-                this.positionBeforeMove++;
-            }
-        }
+        super.takeSteps();
     }
 
     @Override
