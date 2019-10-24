@@ -20,6 +20,7 @@ public class Skeleton extends Actor {
         this.health = random.nextInt(9) + 1;
     }
 
+    @Override
     public int getCorruptionRate() {
         return corruptionRate;
     }

@@ -63,6 +63,7 @@ public class Cell implements Drawable {
     }
 
     public boolean freeForEncounter() {
-        return (this.getType().equals(CellType.FLOOR) || this.getType().equals(CellType.BRIDGE) || this.getType().equals(CellType.PARLIAMENT)) && this.getActor() != null;
+        System.out.println(getActor() + " ACTOR");
+        return (this.getActor() != null);
     }
 }

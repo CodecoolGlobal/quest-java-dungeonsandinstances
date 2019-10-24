@@ -10,12 +10,14 @@ public class Encounter {
     }
 
     // Methods
-    private void fight(Player player, Skeleton enemy) {
+    private void fight(Player player,  Actor enemy) {
         int dice = 20;
         Random random = new Random();
         while (player.getHealth() > 0 && enemy.getHealth() > 0) {
             int attackPlayer = random.nextInt(dice)+1;
+            System.out.println("attackPlayer: "+attackPlayer);
             int attackEnemy = random.nextInt(dice)+1;
+            System.out.println("attackEnemy: "+attackEnemy);
 
             if (attackPlayer + player.getStrength() > enemy.getProtection()) {
                 int damage = random.nextInt(player.getMaxDamage()) + 1;
@@ -38,7 +40,7 @@ public class Encounter {
         }
     }
 
-    public void encounter(Player player, Skeleton enemy) {
+    public void encounter(Player player, Actor enemy) {
 
         if (player.getWealth() >= enemy.getCorruptionRate()) {
             player.setWealth(-enemy.getCorruptionRate());
