@@ -19,6 +19,7 @@ public abstract class Actor implements Drawable {
     }
 
     protected int protection;
+    protected int corruptionRate;
 
     public int getMaxDamage() {
         return maxDamage;
@@ -55,4 +56,6 @@ public abstract class Actor implements Drawable {
     public int getProtection() {
         return protection;
     }
+
+    public abstract int getCorruptionRate();
 }
