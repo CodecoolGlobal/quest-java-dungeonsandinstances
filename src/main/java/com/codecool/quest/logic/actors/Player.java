@@ -27,6 +27,10 @@ public class Player extends Actor {
             nextCell.setActor(this);
             cell = nextCell;
         }
+
+        if (nextCell.freeForEncounter()) {
+            //Encount
+        }
     }
 
     public String getTileName() {
