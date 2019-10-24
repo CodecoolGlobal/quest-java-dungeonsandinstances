@@ -1,7 +1,9 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Actor;
+import com.codecool.quest.logic.actors.Skeleton;
 import com.codecool.quest.logic.items.Item;
+import com.sun.scenario.effect.Effect;
 
 public class Cell implements Drawable {
     private CellType type;
