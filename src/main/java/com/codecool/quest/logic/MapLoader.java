@@ -4,7 +4,9 @@ import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.logic.actors.Politician1;
 import com.codecool.quest.logic.actors.Politician2;
 import com.codecool.quest.logic.actors.Skeleton;
+import com.codecool.quest.logic.items.Crone;
 import com.codecool.quest.logic.items.Key;
+import com.codecool.quest.logic.items.Pine;
 import com.codecool.quest.logic.items.Sword;
 
 import java.io.InputStream;
@@ -36,7 +38,8 @@ public class MapLoader {
                             cell.setType(CellType.BRIDGE);
                             break;
                         case 't':
-                            cell.setType(CellType.TARLOS);
+                            cell.setType(CellType.FLOOR);
+                            new Crone(cell);
                             break;
                         case 'o':
                             cell.setType(CellType.PARLIAMENT);
@@ -77,7 +80,8 @@ public class MapLoader {
                             new Sword(cell);
                             break;
                         case 'p':
-                            cell.setType(CellType.PINE);
+                            cell.setType(CellType.FLOOR);
+                            new Pine(cell);
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");

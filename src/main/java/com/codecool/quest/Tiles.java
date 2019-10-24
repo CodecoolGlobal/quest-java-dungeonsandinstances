@@ -32,7 +32,7 @@ public class Tiles {
         tileMap.put("pine", new Tile(1, 1));
         tileMap.put("bridge", new Tile(5, 7));
         tileMap.put("river", new Tile(8, 5));
-        tileMap.put("tarlos", new Tile(11, 24));
+        tileMap.put("crone", new Tile(11, 24));
         tileMap.put("parliament", new Tile(5, 19));
         tileMap.put("politician1", new Tile(21, 8));
         tileMap.put("politician2", new Tile(21, 9));
