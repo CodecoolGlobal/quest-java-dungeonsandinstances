@@ -34,8 +34,8 @@ public class Tiles {
         tileMap.put("river", new Tile(8, 5));
         tileMap.put("crone", new Tile(11, 24));
         tileMap.put("parliament", new Tile(5, 19));
-        tileMap.put("politician1", new Tile(21, 8));
-        tileMap.put("politician2", new Tile(21, 9));
+        tileMap.put("politician1", new Tile(24, 7));
+        tileMap.put("politician2", new Tile(25, 9));
 
         tileMap.put("sword", new Tile(2, 29));
         tileMap.put("key", new Tile(16, 23));
