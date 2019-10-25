@@ -4,6 +4,7 @@ import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.MapLoader;
 import com.codecool.quest.logic.actors.Actor;
+import com.codecool.quest.logic.items.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -27,7 +28,8 @@ public class Main extends Application {
             map.getHeight() * Tiles.TILE_WIDTH);
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
-    Label buttonLabel = new Label();
+    Label itemPickUp = new Label();
+    ListView listView = new ListView();
 
     public static void main(String[] args) {
         launch(args);
@@ -39,25 +41,31 @@ public class Main extends Application {
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
 
-        //ui.add(new Label("Health: "), 0, 0, 1, 1);
-        //ui.add(healthLabel, 1, 0);
+        ui.add(new Label("Health: "), 0, 0, 1, 1);
+        ui.add(healthLabel, 1, 0);
+        ui.add(itemPickUp, 0,1);
 
-        Button button = new Button("Pick up item");
+        /*Button button = new Button("Pick up item");
         ui.add(button, 0, 1, 1, 1);
-        button.setPrefSize(100, 50);
+        button.setPrefSize(100, 50);*/
 
-        button.setOnAction(new EventHandler<>() {
+      /*  listView.getItems().add("Pine");
+        listView.getItems().add("Key");
+        listView.getItems().add("Bomb");*/
+
+
+     /*   if(!map.getPlayer().getItemToPickup(map.getPlayer().getCell()).equals(null)){
+            listView.getItems().add(map.getPlayer().getItemToPickup(map.getPlayer().getCell()).getTileName());
+        }*/
+
+       /* button.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent e) {
                 button.setText("Item picked");
             }
-        });
+        });*/
 
 
-        ListView listView = new ListView();
-        listView.getItems().add("Pine");
-        listView.getItems().add("Key");
-        listView.getItems().add("Bomb");
 
         VBox vbox = new VBox(listView);
         vbox.setPrefSize(100,150);
@@ -82,12 +90,15 @@ public class Main extends Application {
         GameTimer gameTimer = new GameTimer();
         gameTimer.setup(this::step);
         gameTimer.play();
+
+
     }
 
 
     private void step() {
         map.getActors().forEach(Actor::move);
         refresh();
+
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
@@ -104,11 +115,19 @@ public class Main extends Application {
             case D:
                 map.getPlayer().setNewDX(1);
                 break;
+            case E:
+                Item item = map.getPlayer().getCell().getItem();
+                if(item == null){
+                    break;
+                }else{
+                    map.getPlayer().pickUpItem(item);
+                    map.getPlayer().getCell().setItem(null);
+                    listView.getItems().add(item.getTileName());
+                }
         }
     }
 
     private void refresh() {
-
         context.setFill(Color.BLACK);
         context.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         for (int x = 0; x < map.getWidth(); x++) {
@@ -124,5 +143,18 @@ public class Main extends Application {
             }
         }
         healthLabel.setText("" + map.getPlayer().getHealth());
+
+        Item item = map.getPlayer().getCell().getItem();
+        //listView.getItems().add(item.getTileName());
+        if(item == null){
+            itemPickUp.setText("'E' to pick up: nothing");
+     /*       System.out.println(item.getTileName());
+            listView.getItems().add(item.getTileName());
+            map.getPlayer().getCell().setItem(null);*/
+        }else{
+            itemPickUp.setText("'E' to pick up: " + item.getTileName());
+            }
+
+        }
     }
-}
+

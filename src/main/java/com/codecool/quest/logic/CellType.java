@@ -31,7 +31,6 @@ public enum CellType {
             else {
                 return false;
             }
-            return tile.equals(FLOOR);
         }
         return false;
     }
