@@ -1,12 +1,34 @@
 package com.codecool.quest.logic.actors;
 
 import com.codecool.quest.logic.Cell;
-import com.codecool.quest.logic.CellType;
 import com.codecool.quest.logic.Drawable;
+
+import java.util.Random;
 
 public abstract class Actor implements Drawable {
     protected Cell cell;
-    private int health = 10;
+
+    public void setHealth(int health) {
+        this.health += health;
+    }
+
+    protected int health;
+
+    public int getStrength() {
+        return strength;
+    }
+
+    protected int protection;
+    protected int corruptionRate;
+
+    public int getMaxDamage() {
+        return maxDamage;
+    }
+
+    protected int maxDamage;
+
+    protected int strength;
+
 
     public Actor(Cell cell) {
         this.cell = cell;
@@ -30,4 +52,10 @@ public abstract class Actor implements Drawable {
     public int getY() {
         return cell.getY();
     }
+
+    public int getProtection() {
+        return protection;
+    }
+
+    public abstract int getCorruptionRate();
 }

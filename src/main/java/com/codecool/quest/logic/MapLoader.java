@@ -1,8 +1,12 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Player;
+import com.codecool.quest.logic.actors.Politician1;
+import com.codecool.quest.logic.actors.Politician2;
 import com.codecool.quest.logic.actors.Skeleton;
+import com.codecool.quest.logic.items.Crone;
 import com.codecool.quest.logic.items.Key;
+import com.codecool.quest.logic.items.Pine;
 import com.codecool.quest.logic.items.Sword;
 
 import java.io.InputStream;
@@ -34,16 +38,21 @@ public class MapLoader {
                             cell.setType(CellType.BRIDGE);
                             break;
                         case 't':
-                            cell.setType(CellType.TARLOS);
+                            cell.setType(CellType.FLOOR);
+                            new Crone(cell);
                             break;
                         case 'o':
                             cell.setType(CellType.PARLIAMENT);
                             break;
                         case '1':
-                            cell.setType(CellType.POLITICIAN1);
+                            cell.setType(CellType.FLOOR);
+                            Politician1 politician1 = new Politician1(cell);
+                            map.addActor(politician1);
                             break;
                         case '2':
-                            cell.setType(CellType.POLITICIAN2);
+                            cell.setType(CellType.FLOOR);
+                            Politician2 politician2 = new Politician2(cell);
+                            map.addActor(politician2);
                             break;
                         case '=':
                             cell.setType(CellType.RIVER);
@@ -71,7 +80,8 @@ public class MapLoader {
                             new Sword(cell);
                             break;
                         case 'p':
-                            cell.setType(CellType.PINE);
+                            cell.setType(CellType.FLOOR);
+                            new Pine(cell);
                             break;
                         default:
                             throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");

@@ -1,12 +1,16 @@
 package com.codecool.quest.logic.actors;
 
 import com.codecool.quest.logic.Cell;
-import com.codecool.quest.logic.actors.Actor;
 
 import java.util.Random;
 
-public class Skeleton extends Actor {
-    public Skeleton(Cell cell) {
+public abstract class Politician extends Actor {
+    protected int newDX;
+    protected int newDY;
+    protected int positionBeforeMove = 1;
+
+    public Politician(Cell cell) {
+
         super(cell);
         Random random = new Random();
         int maxCorruptionRate = 10;
@@ -20,31 +24,26 @@ public class Skeleton extends Actor {
         this.health = random.nextInt(9) + 1;
     }
 
-    @Override
-    public int getCorruptionRate() {
-        return corruptionRate;
-    }
-
-    private int corruptionRate;
-
-    @Override
-    public void move() {
-
-        Random random = new Random();
-        int newDX = random.nextInt(3)-1;
-        int newDY = random.nextInt(3)-1;
-
-        Cell nextCell = cell.getNeighbor(newDX, newDY);
-
+    public void takeSteps() {
+        Cell nextCell = cell.getNeighbor(this.newDX, this.newDY);
         if (nextCell.freeForMovement()) {
             cell.setActor(null);
             nextCell.setActor(this);
             cell = nextCell;
+
+            if (this.positionBeforeMove == 8) {
+                this.positionBeforeMove = 1;
+            } else {
+                this.positionBeforeMove++;
+            }
         }
     }
 
     @Override
-    public String getTileName() {
-        return "skeleton";
+    public abstract String getTileName();
+
+    @Override
+    public int getCorruptionRate() {
+        return corruptionRate;
     }
 }

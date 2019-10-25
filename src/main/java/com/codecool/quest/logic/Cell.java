@@ -1,7 +1,9 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Actor;
+import com.codecool.quest.logic.actors.Skeleton;
 import com.codecool.quest.logic.items.Item;
+import com.sun.scenario.effect.Effect;
 
 public class Cell implements Drawable {
     private CellType type;
@@ -57,6 +59,11 @@ public class Cell implements Drawable {
     }
 
     public boolean freeForMovement() {
-        return this.getType().equals(CellType.FLOOR) && this.getActor() == null;
+        return (this.getType().equals(CellType.FLOOR) || this.getType().equals(CellType.BRIDGE) || this.getType().equals(CellType.PARLIAMENT)) && this.getActor() == null;
+    }
+
+    public boolean freeForEncounter() {
+        System.out.println(getActor() + " ACTOR");
+        return (this.getActor() != null);
     }
 }

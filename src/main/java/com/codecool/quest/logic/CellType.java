@@ -35,6 +35,14 @@ public enum CellType {
         return false;
     }
 
+//    public boolean canMoveToNExtCell() {
+//
+//        for (CellType tile : CellType.values()) {
+//            //System.out.println(tile);
+//            return tile.equals(FLOOR);
+//        }
+//        return true;
+//    }
 }
 
 
